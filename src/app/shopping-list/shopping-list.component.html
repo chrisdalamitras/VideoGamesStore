@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-10">
-    <app-shopping-edit></app-shopping-edit>
+    <app-shopping-edit (itemAdded)="onItemAdded($event)"></app-shopping-edit>
     <hr>
     <div class="list-group">
       <a *ngFor="let theVideoGameInCart of videoGamesInCart" class="list-group-item list-group-item-action">
