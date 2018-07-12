@@ -1,13 +1,14 @@
 <div class="row">
   <div class="col-md-12">
-    <img [src]="" alt="Dummy" class="img-fluid">
+    <h3>{{videoGameDetails.name}}</h3>
   </div>
 </div>
 <div class="row">
   <div class="col-md-12">
-    <h3>Video Game Name</h3>
+    <img [src]="videoGameDetails.imagePath" alt="{{videoGameDetails.name}}" class="img-fluid" style="max-height: 300px">
   </div>
 </div>
+<br/>
 <div class="row">
   <div class="col-md-12">
     <div ngbDropdown class="d-inline-block">
@@ -23,11 +24,12 @@
 </div>
 <div class="row">
   <div class="col-md-12">
-    Plot
+    {{videoGameDetails.description}}
   </div>
 </div>
 <div class="row">
   <div class="col-md-12">
-    Trailer
+    <iframe width="500" height="315" [src]="sanitizedUrl" frameborder="0" allowfullscreen>
+    </iframe>
   </div>
 </div>

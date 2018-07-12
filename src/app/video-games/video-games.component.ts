@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { VideoGame } from './video-games.model';
 
 @Component({
   selector: 'app-video-games',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./video-games.component.css']
 })
 export class VideoGamesComponent implements OnInit {
+  selectedVideoGame: VideoGame;
 
   constructor() { }
 
