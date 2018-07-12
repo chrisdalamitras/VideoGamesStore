@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { VideoGame } from '../../video-games.model';
 
 @Component({
   selector: 'app-video-games-item',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./video-games-item.component.css']
 })
 export class VideoGamesItemComponent implements OnInit {
+  @Input() videoGameItem: VideoGame;
 
   constructor() { }
 

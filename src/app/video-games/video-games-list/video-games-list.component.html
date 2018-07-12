@@ -7,18 +7,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="list-group">
-            <a *ngFor="let videoGame of videoGameList" href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">{{videoGame.name}}</h5>
-                    <small class="text-muted">Publisher: {{videoGame.publisher}}</small>
-                </div>
-                <span class="float-right">
-                    <img [src]="videoGame.imagePath" alt="{{videoGame.name}}" class="img-fluid" style="max-height: 75px;">
-                </span>
-                <p class="mb-1">{{videoGame.description}}</p>
-                <small class="text-muted">Release: {{videoGame.dateOfRelease}}</small>
-            </a>
+            <app-video-games-item *ngFor="let videoGame of videoGameList" [videoGameItem]="videoGame"></app-video-games-item>
         </div>
-        <app-video-games-item></app-video-games-item>
     </div>
 </div>

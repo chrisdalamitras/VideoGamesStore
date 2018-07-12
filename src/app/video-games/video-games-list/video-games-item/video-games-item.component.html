@@ -1,3 +1,11 @@
-<p>
-  video-games-item works!
-</p>
+<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+  <div class="d-flex w-100 justify-content-between">
+    <h5 class="mb-1">{{videoGameItem.name}}</h5>
+    <small class="text-muted">Publisher: {{videoGameItem.publisher}}</small>
+  </div>
+  <span class="float-right">
+    <img [src]="videoGameItem.imagePath" alt="{{videoGameItem.name}}" class="img-fluid" style="max-height: 75px;">
+  </span>
+  <p class="mb-1">{{videoGameItem.description}}</p>
+  <small class="text-muted">Release: {{videoGameItem.dateOfRelease}}</small>
+</a>
