@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { VideoGame } from '../../video-games.model';
+import { VideoGamesService } from '../video-games.service';
 
 @Component({
   selector: 'app-video-games-item',
@@ -8,15 +9,14 @@ import { VideoGame } from '../../video-games.model';
 })
 export class VideoGamesItemComponent implements OnInit {
   @Input() videoGameItem: VideoGame;
-  @Output() videoGameSelected = new EventEmitter<void>();
 
-  constructor() { }
+  constructor(private videoGamesService: VideoGamesService) { }
 
   ngOnInit() {
   }
 
   onSelected() {
-    this.videoGameSelected.emit();
+    this.videoGamesService.videoGameSelected.emit(this.videoGameItem);
   }
 
 }

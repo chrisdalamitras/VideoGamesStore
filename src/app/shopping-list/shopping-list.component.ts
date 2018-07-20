@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VideoGameInShoppingList } from '../shared/video-game-in-shopping-list.model';
+import { ShoppingListService } from './shopping-list.service';
 
 @Component({
   selector: 'app-shopping-list',
@@ -7,16 +8,16 @@ import { VideoGameInShoppingList } from '../shared/video-game-in-shopping-list.m
   styleUrls: ['./shopping-list.component.css']
 })
 export class ShoppingListComponent implements OnInit {
-  videoGamesInCart: VideoGameInShoppingList[] = [new VideoGameInShoppingList('Devil May Cry', 2),
-  new VideoGameInShoppingList('Resident Evil', 1)];
+  videoGamesInCart: VideoGameInShoppingList[];
 
-  constructor() { }
+  constructor(private shoppingListService: ShoppingListService) { }
 
   ngOnInit() {
-  }
-
-  onItemAdded(item: VideoGameInShoppingList) {
-    this.videoGamesInCart.push(item);
+    this.videoGamesInCart = this.shoppingListService.getVideoGamesInCart();
+    this.shoppingListService.videoGamesInCartChanged
+      .subscribe((newVideoGamesInCart: VideoGameInShoppingList[]) => {
+        this.videoGamesInCart = newVideoGamesInCart;
+      });
   }
 
 }
