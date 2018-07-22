@@ -14,6 +14,7 @@ import { HeaderComponent } from './header/header.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     BrowserModule,
     FormsModule,
     NgbModule.forRoot(),
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    AppRoutingModule
   ],
   providers: [ShoppingListService],
   bootstrap: [AppComponent]
