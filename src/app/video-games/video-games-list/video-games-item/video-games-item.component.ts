@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { VideoGame } from '../../video-games.model';
-import { VideoGamesService } from '../video-games.service';
 
 @Component({
   selector: 'app-video-games-item',
@@ -9,14 +8,11 @@ import { VideoGamesService } from '../video-games.service';
 })
 export class VideoGamesItemComponent implements OnInit {
   @Input() videoGameItem: VideoGame;
+  @Input() index: number;
 
-  constructor(private videoGamesService: VideoGamesService) { }
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  onSelected() {
-    this.videoGamesService.videoGameSelected.emit(this.videoGameItem);
   }
 
 }

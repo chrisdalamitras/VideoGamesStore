@@ -15,6 +15,8 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AppRoutingModule } from './app-routing.module';
+import { VideoGameStartComponent } from './video-games/video-game-start/video-game-start.component';
+import { VideoGameEditComponent } from './video-games/video-game-edit/video-game-edit.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { AppRoutingModule } from './app-routing.module';
     ShoppingListComponent,
     ShoppingEditComponent,
     HeaderComponent,
-    DropdownDirective
+    DropdownDirective,
+    VideoGameStartComponent,
+    VideoGameEditComponent
   ],
   imports: [
     BrowserModule,

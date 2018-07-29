@@ -30,5 +30,9 @@ export class VideoGamesService {
         return this.videoGameList.slice(); // we use slice so we get o copy of the array not the actual reference to the array
     }
 
+    getVideoGame(index: number) {
+        return this.videoGameList[index];
+    }
+
 }
 

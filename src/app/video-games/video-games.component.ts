@@ -9,15 +9,10 @@ import { VideoGamesService } from './video-games-list/video-games.service';
   providers: [VideoGamesService]
 })
 export class VideoGamesComponent implements OnInit {
-  selectedVideoGame: VideoGame;
 
-  constructor(private videoGamesService: VideoGamesService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.videoGamesService.videoGameSelected
-      .subscribe((videoGame: VideoGame) => {
-        this.selectedVideoGame = videoGame;
-      });
   }
 
 }

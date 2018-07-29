@@ -3,7 +3,6 @@
     <app-video-games-list></app-video-games-list>
   </div>
   <div class="col-md-7">
-    <app-video-games-details *ngIf="selectedVideoGame; else infoText" [videoGameDetails]="selectedVideoGame"></app-video-games-details>
-    <ng-template #infoText>Select a video game to see its details</ng-template>
+    <router-outlet></router-outlet>
   </div>
 </div>

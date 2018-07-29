@@ -8,8 +8,8 @@ import { VideoGamesService } from './video-games.service';
   styleUrls: ['./video-games-list.component.css']
 })
 export class VideoGamesListComponent implements OnInit {
-
   videoGameList: VideoGame[];
+
   constructor(private videoGamesService: VideoGamesService) { }
 
   ngOnInit() {

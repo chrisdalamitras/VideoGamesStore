@@ -1,13 +1,13 @@
 <div class="row">
     <div class="col-md-12">
-        <button type="button" class="btn btn-success">New Video Game</button>
+        <button type="button" class="btn btn-success" [routerLink]="['new']">New Video Game</button>
     </div>
 </div>
 <hr>
 <div class="row">
     <div class="col-md-12">
         <div class="list-group">
-            <app-video-games-item *ngFor="let videoGame of videoGameList" [videoGameItem]="videoGame"></app-video-games-item>
+            <app-video-games-item *ngFor="let videoGame of videoGameList; let i = index" [videoGameItem]="videoGame" [index]="i"></app-video-games-item>
         </div>
     </div>
 </div>

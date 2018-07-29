@@ -1,26 +1,34 @@
-import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { VideoGame } from '../video-games.model';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ShoppingListService } from '../../shopping-list/shopping-list.service';
 import { VideoGameInShoppingList } from '../../shared/video-game-in-shopping-list.model';
+import { VideoGamesService } from '../video-games-list/video-games.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-video-games-details',
   templateUrl: './video-games-details.component.html',
   styleUrls: ['./video-games-details.component.css']
 })
-export class VideoGamesDetailsComponent implements OnInit, OnChanges {
-  @Input() videoGameDetails: VideoGame;
+export class VideoGamesDetailsComponent implements OnInit {
+  videoGameDetails: VideoGame;
   sanitizedUrl;
-  currentRate = 4.5;
+  id: number;
 
-  constructor(public sanitizer: DomSanitizer, private shoppingListService: ShoppingListService) { }
+  constructor(public sanitizer: DomSanitizer,
+    private shoppingListService: ShoppingListService,
+    private videoGamesService: VideoGamesService,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoGameDetails.trailerPath);
+    this.route.params.subscribe(
+      (params: Params) => {
+        this.id = +params['id'];
+        this.videoGameDetails = this.videoGamesService.getVideoGame(this.id);
+        this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoGameDetails.trailerPath);
+      }
+    );
   }
 
   AddToCart() {
