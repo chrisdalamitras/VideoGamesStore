@@ -1,8 +1,6 @@
 import { VideoGame } from '../video-games.model';
-import { EventEmitter } from '@angular/core';
 
 export class VideoGamesService {
-    videoGameSelected = new EventEmitter<VideoGame>();
 
     private videoGameList: VideoGame[] = [
         new VideoGame('Resident Evil', 'Capcom',

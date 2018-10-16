@@ -1,8 +1,8 @@
 import { VideoGameInShoppingList } from '../shared/video-game-in-shopping-list.model';
-import { EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 
 export class ShoppingListService {
-    videoGamesInCartChanged = new EventEmitter<VideoGameInShoppingList[]>();
+    videoGamesInCartChanged = new Subject<VideoGameInShoppingList[]>();
 
     private videoGamesInCart: VideoGameInShoppingList[] = [];
 
@@ -12,7 +12,7 @@ export class ShoppingListService {
 
     addVideoGame(item: VideoGameInShoppingList) {
         this.videoGamesInCart.push(item);
-        this.videoGamesInCartChanged.emit(this.videoGamesInCart.slice());
+        this.videoGamesInCartChanged.next(this.videoGamesInCart.slice());
     }
 
 }
